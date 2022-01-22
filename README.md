@@ -1,0 +1,2 @@
+# vortezz.dev
+
