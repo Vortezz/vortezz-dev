@@ -80,7 +80,7 @@ export default function Terms() {
                 <p className="text-base md:text-lg xl:text-xl ml-12">We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. If a revision is material We will make reasonable efforts to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at Our sole discretion.</p>
                 <p className="text-base md:text-lg xl:text-xl ml-12">By continuing to access or use Our Service after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the website and the Service.</p>
                 <h1 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl m-4">Source Code</h1>
-                <p className="text-base md:text-lg xl:text-xl ml-12">The code of this website can be found on Github {"{INSERTREPOLINKHERE}"}</p>
+                <p className="text-base md:text-lg xl:text-xl ml-12">The code of this website can be found on Github <a href="https://github.com/Vortezz/vortezz-dev" target="_blank">https://github.com/Vortezz/vortezz-web</a></p>
                 <h1 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl m-4">Contact Us</h1>
                 <p className="text-base md:text-lg xl:text-xl ml-12">If you have any questions about these Terms and Conditions, You can contact us:</p>
                 <ul>
