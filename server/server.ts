@@ -151,7 +151,6 @@ app.post('/api/sendMessage', (req, res) => {
 });
 
 app.get('/static/*', (req, res) => {
-    console.log(req.path)
     if (existsSync(__dirname.replace("server", "build") + req.path) && req.path != "/static/") {
         res.sendFile(__dirname.replace("server", "build") + req.path)
     } else {
