@@ -2,8 +2,9 @@ import express from "express";
 import path from "path";
 import nodemailer from "nodemailer";
 import mysql from "mysql2";
-import { initStatusChecker, resolveStatus } from "./status"
-import WebSocket, { Server } from "ws";
+import { initStatusChecker } from "./status"
+import { existsSync } from "fs"
+import { Server } from "ws";
 import http from "http";
 import bodyParser from "body-parser";
 
@@ -150,7 +151,12 @@ app.post('/api/sendMessage', (req, res) => {
 });
 
 app.get('/static/*', (req, res) => {
-    res.sendFile(__dirname.replace("server", "build") + req.path)
+    console.log(req.path)
+    if (existsSync(__dirname.replace("server", "build") + req.path) && req.path != "/static/") {
+        res.sendFile(__dirname.replace("server", "build") + req.path)
+    } else {
+        res.redirect("/")
+    }
 })
 
 app.get('*', (req, res) => {
