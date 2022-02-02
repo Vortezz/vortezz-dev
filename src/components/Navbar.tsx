@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import language from "../language";
 
 const logo = require("../assets/pictures/logo.png")
 
@@ -11,10 +12,10 @@ export default function Navbar() {
             <h1 className="my-auto ml-8 font-bold text-xl flex"><img className="h-6 w-6 my-auto" src={logo} /> <span className="ml-2 my-auto">Vortezz</span></h1>
             <ul className="my-auto flex-row font-semibold text-l hidden md:flex">
                 <Link to="/">
-                    <li className="mr-8 hover:text-vortezz-purple cursor-pointer text-xl">About</li>
+                    <li className="mr-8 hover:text-vortezz-purple cursor-pointer text-xl">{language.NAVBAR.ABOUT}</li>
                 </Link>
                 <Link to="/contact">
-                    <li className="mr-8 hover:text-vortezz-purple cursor-pointer text-xl">Contact</li>
+                    <li className="mr-8 hover:text-vortezz-purple cursor-pointer text-xl">{language.NAVBAR.CONTACT}</li>
                 </Link>
                 <Link to="/github" target="_blank">
                     <li className="mr-8 hover:text-vortezz-purple cursor-pointer text-xl">Github</li>
@@ -28,10 +29,10 @@ export default function Navbar() {
         </div>
         <ul className={"z-50 my-auto flex-col font-semibold text-l md:hidden fixed w-full mb-4 bg-vortezz-gray1 top-20" + (isMenuOpen ? " flex opacity-1" : " hidden opacity-0")}>
             <Link to="/" className="w-full text-center bg-vortezz-gray1 text-vortezz-white text-xl">
-                <li className="hover:text-vortezz-purple cursor-pointer">About</li>
+                <li className="hover:text-vortezz-purple cursor-pointer">{language.NAVBAR.ABOUT}</li>
             </Link>
             <Link to="/contact" className="w-full text-center bg-vortezz-gray1 text-vortezz-white text-xl">
-                <li className="hover:text-vortezz-purple cursor-pointer">Contact</li>
+                <li className="hover:text-vortezz-purple cursor-pointer">{language.NAVBAR.CONTACT}</li>
             </Link>
             <Link to="/github" target="_blank" className="w-full text-center bg-vortezz-gray1 text-vortezz-white text-xl">
                 <li className="hover:text-vortezz-purple cursor-pointer">Github</li>
