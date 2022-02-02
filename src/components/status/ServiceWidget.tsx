@@ -1,6 +1,7 @@
 import Service from "./struct/Service";
 import ReactTooltip from "react-tooltip";
 import date from "date-and-time";
+import language from "../../language";
 
 export default function ServiceWidget(service: Service) {
     return <div className={`h-40 w-[calc(95%)] m-auto`}>
@@ -14,7 +15,7 @@ export default function ServiceWidget(service: Service) {
                     <div data-tip data-for={`${index}-${service.name.toLocaleLowerCase().replace(" ", "_")}`} key={index} className={`h-12 w-1 sm:w-2 bg-status-${details.color} m-[calc(0.15rem)] sm:m-1 rounded-full`}></div>
                     <ReactTooltip place="bottom" id={`${index}-${service.name.toLocaleLowerCase().replace(" ", "_")}`} type="dark" effect="solid">
                         <h1>{date.format(new Date(parseInt(details.date) * 1000), "ddd, MMM DD YYYY")}</h1>
-                        <p>{details.uptime == -1 ? "No Data" : `${details.uptime}%`}</p>
+                        <p>{details.uptime == -1 ? language.STATUS.NODATA : `${details.uptime}%`}</p>
                     </ReactTooltip>
                 </div>
             })}

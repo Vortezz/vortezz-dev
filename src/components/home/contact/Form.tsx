@@ -2,6 +2,7 @@ import fetch from "node-fetch";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import React, { useState } from "react";
+import language from "../../../language";
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
     props,
@@ -69,35 +70,35 @@ export default function Form() {
     return (<div className="w-full bg-vortezz-gray3">
         <Snackbar open={fieldsFilledAlert} autoHideDuration={6000} onClose={() => { setFieldsFilledAlert(false) }}>
             <Alert onClose={() => { setFieldsFilledAlert(false) }} severity="error" sx={{ width: '100%' }}>
-                Please fill all fields
+                {language.CONTACT.FORM.ALERTS.FILL}
             </Alert>
         </Snackbar>
         <Snackbar open={invalidEmailAlert} autoHideDuration={6000} onClose={() => { setInvalidEmailAlert(false) }}>
             <Alert onClose={() => { setInvalidEmailAlert(false) }} severity="error" sx={{ width: '100%' }}>
-                Your email seems to be invalid
+                {language.CONTACT.FORM.ALERTS.INVALID_MAIL}
             </Alert>
         </Snackbar>
         <Snackbar open={mailError} autoHideDuration={6000} onClose={() => { setMailError(false) }}>
             <Alert onClose={() => { setMailError(false) }} severity="error" sx={{ width: '100%' }}>
-                Error while sending mail
+                {language.CONTACT.FORM.ALERTS.SENDING_MAIL}
             </Alert>
         </Snackbar>
         <Snackbar open={messageSended} autoHideDuration={6000} onClose={() => { setMessageSended(false) }}>
             <Alert onClose={() => { setMessageSended(false) }} severity="success" sx={{ width: '100%' }}>
-                Message sent successfully
+                {language.CONTACT.FORM.ALERTS.MESSAGE_SENDED}
             </Alert>
         </Snackbar>
         <div className="max-w-[calc(40rem)] w-[calc(95%)] flex flex-col m-auto">
-            <label className="text-vortezz-white m-2 text-xl font-semibold" htmlFor="email">Email :</label >
+            <label className="text-vortezz-white m-2 text-xl font-semibold" htmlFor="email">{language.CONTACT.FORM.EMAIL} :</label >
             <input className="rounded focus:outline-none focus:ring-2 ring-vortezz-purple h-8 px-2" type="email" id="email" placeholder="contact@vortezz.dev" required />
-            <label className="text-vortezz-white m-2 text-xl font-semibold" htmlFor="subject">Subject :</label >
+            <label className="text-vortezz-white m-2 text-xl font-semibold" htmlFor="subject">{language.CONTACT.FORM.SUBJECT} :</label >
             <input className="rounded focus:outline-none focus:ring-2 ring-vortezz-purple h-8 px-2" type="text" id="subject" placeholder="Lorem ipsum dolor" required />
-            <label className="text-vortezz-white m-2 text-xl font-semibold" htmlFor="name">Name :</label >
+            <label className="text-vortezz-white m-2 text-xl font-semibold" htmlFor="name">{language.CONTACT.FORM.NAME} :</label >
             <input className="rounded focus:outline-none focus:ring-2 ring-vortezz-purple h-8 px-2" type="text" id="name" placeholder="Vortezz" required />
-            <label className="text-vortezz-white m-2 text-xl font-semibold" htmlFor="name">Message :</label >
+            <label className="text-vortezz-white m-2 text-xl font-semibold" htmlFor="name">{language.CONTACT.FORM.MESSAGE} :</label >
             <textarea className="rounded focus:outline-none focus:ring-2 ring-vortezz-purple h-40 px-2" id="message" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam..." required />
             <div className="w-full flex">
-                <div className="p-4 bg-vortezz-purple rounded-full w-24 text-center text-vortezz-white text-xl font-semibold cursor-pointer mx-auto my-2" onClick={doForm}>Send !</div>
+                <div className="p-4 bg-vortezz-purple rounded-full w-24 text-center text-vortezz-white text-xl font-semibold cursor-pointer mx-auto my-2" onClick={doForm}>{language.CONTACT.FORM.SEND}</div>
             </div>
         </div>
     </div>)
