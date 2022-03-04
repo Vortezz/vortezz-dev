@@ -47,7 +47,7 @@ export default function Form() {
         urlencoded.append("name", name.value);
         urlencoded.append("content", message.value);
 
-        const request = await fetch("https://web.vortezz.dev/api/sendMessage", {
+        const request = await fetch("https://vortezz.dev/api/sendMessage", {
             method: 'POST',
             body: urlencoded,
             headers: { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" },

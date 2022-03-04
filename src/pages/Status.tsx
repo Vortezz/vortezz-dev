@@ -9,7 +9,7 @@ import date from "date-and-time";
 import language from "../language";
 
 export default class Status extends Component {
-    wss = new ReconnectingWebSocket("wss://web.vortezz.dev/")
+    wss = new ReconnectingWebSocket("wss://vortezz.dev/")
     statuses: Statuses | undefined;
     connected = false;
     error = false;

@@ -28,7 +28,7 @@ export async function resolveStatus(connection: Connection) {
 
         const service: ServiceData = services[i];
 
-        const [serviceTyped, serviceField] = await promise.query("SELECT * FROM `status_history` WHERE `service` = ? ORDER BY `timestamp` DESC", [service.id])
+        const [serviceTyped, serviceField] = await promise.query("SELECT * FROM `status_history` WHERE `service` = ? ORDER BY `timestamp` DESC LIMIT 30", [service.id])
 
         const serviceDetails: any = serviceTyped;
 
