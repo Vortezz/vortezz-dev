@@ -52,7 +52,7 @@ export async function resolveStatus(connection: Connection) {
                 let isUp = false;
                 if (service.type == 0) {
                     try {
-                        isUp = (await fetch(service.link)).status == 200
+                        isUp = (await fetch(service.link)).status == 200 || (await fetch(service.link)).status == 302
                     } catch (e) { }
                 }
                 if (!isUp) {

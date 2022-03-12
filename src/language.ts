@@ -36,7 +36,7 @@ export default {
             YEAR_2019: "Created my first web page. Studied HTML and CSS",
             YEAR_2020: "Learnt PHP, JS and bases of Java and Bash",
             YEAR_2021: "Deepened my JS, Java and Bash knowledge. Discovered Flutter, React and Tailwind",
-            YEAR_2022: "Who knows what holds the future ?",
+            YEAR_2022: "Joined Ekalia, but who knows what holds the future ?",
         },
         SKILLS: {
             TITLE: "Skills",
