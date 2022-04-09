@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import Form from "../components/home/contact/Form";
+import Form from "../components/contact/Form";
 import Navbar from "../components/Navbar";
 import Wave from "../components/Wave";
 import language from "../language";

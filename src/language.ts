@@ -31,7 +31,7 @@ export default {
                 DESC: "Born in Normandy (France)"
             },
             CHILDHOOD: "Childhood in Normandy (France), was learning about a lot of things",
-            YEAR_2017: "Discovered Scratch and learnt about algorythmic basics",
+            YEAR_2017: "Discovered Scratch and learned about algorithmic basics",
             YEAR_2018: "Got to know the Internet and got some basics in Python",
             YEAR_2019: "Created my first web page. Studied HTML and CSS",
             YEAR_2020: "Learnt PHP, JS and bases of Java and Bash",
@@ -46,7 +46,9 @@ export default {
         },
         PROJECTS: {
             TITLE: "Projects",
-            DESC: "Sadly, I don't have any public project at the moment... Stay in touch to know when it'll be done !",
+            PROJECTS: {
+                EKALIA: "Ekalia is a French association that organizes events mainly on Minecraft"
+            }
         }
     },
     CONTACT: {
@@ -54,7 +56,7 @@ export default {
         TITLE2: "You have a question, want to know more about something ? You are in the right place !",
         CONTACT_WAYS: {
             USING: "You can contact me using",
-            OR: "ou",
+            OR: "or",
             ALSO: "You can also contact me by sending an email to",
             FORMFILL: "or by filling the form below.",
         },
