@@ -32,6 +32,7 @@ module.exports = {
         },
     },
     plugins: [
-        require('@themesberg/flowbite/plugin')
+        require('@themesberg/flowbite/plugin'),
+        ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})
     ],
 }
