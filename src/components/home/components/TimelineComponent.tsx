@@ -3,7 +3,8 @@ import language from "../../../language";
 export function BottomLeftTimelineComponent({icon, title, description}: Props) {
     return (
         <div className="flex flex-row-reverse md:contents z-0">
-            <div className="bg-vortezz-purple col-start-1 col-end-5 p-4 rounded-lg my-4 ml-auto shadow-md">
+            <div
+                className="bg-vortezz-purple col-start-1 col-end-5 p-4 rounded-lg my-4 lg:ml-auto lg:mr-0 mr-auto shadow-md">
                 <h3 className="font-semibold text-lg mb-1">{title}</h3>
                 <p className="leading-tight text-left">
                     {description}
@@ -25,7 +26,8 @@ export function BottomLeftTimelineComponent({icon, title, description}: Props) {
 export function LeftTimelineComponent({icon, title, description}: Props) {
     return (
         <div className="flex flex-row-reverse md:contents z-10">
-            <div className="bg-vortezz-purple col-start-1 col-end-5 p-4 rounded-lg my-4 ml-auto shadow-md">
+            <div
+                className="bg-vortezz-purple col-start-1 col-end-5 p-4 rounded-lg my-4 lg:ml-auto lg:mr-0 mr-auto shadow-md">
                 <h3 className="font-semibold text-lg mb-1">{title}</h3>
                 <p className="leading-tight text-left">
                     {description}
