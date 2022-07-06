@@ -53,7 +53,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.post('/api/sendMessage', (req, res) => {
+app.post('/api/sendMessage', async (req, res) => {
     if (!contactFormRequests.has(req.headers["x-real-ip"]?.length == 1 ? req.headers["x-real-ip"][0] : "")) {
         contactFormRequests.set(req.headers["x-real-ip"]?.length == 1 ? req.headers["x-real-ip"][0] : "", Date.now());
     } else {
@@ -137,7 +137,7 @@ app.post('/api/sendMessage', (req, res) => {
     </div>`
 
     try {
-        transporter.sendMail({
+        await transporter.sendMail({
             from: '"Vortezz" <noreply@vortezz.dev>',
             to: email,
             subject: "vortezz.dev contact form summary",
@@ -145,7 +145,7 @@ app.post('/api/sendMessage', (req, res) => {
             html: html,
         })
 
-        transporter.sendMail({
+        await transporter.sendMail({
             from: '"Vortezz" <noreply@vortezz.dev>',
             to: "contact@vortezz.dev",
             subject: "Contact form : " + subject,
@@ -156,6 +156,7 @@ app.post('/api/sendMessage', (req, res) => {
         console.log(e);
         res.send("Bad request");
         res.status(403);
+        return;
     }
 
     contactFormRequests.set(req.headers["x-real-ip"]?.length == 1 ? req.headers["x-real-ip"][0] : "", Date.now());
