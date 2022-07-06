@@ -2,9 +2,9 @@ import express from "express";
 import path from "path";
 import nodemailer from "nodemailer";
 import mysql from "mysql2";
-import { initStatusChecker } from "./status"
-import { existsSync } from "fs"
-import { Server } from "ws";
+import {initStatusChecker} from "./status"
+import {existsSync} from "fs"
+import {Server} from "ws";
 import http from "http";
 import bodyParser from "body-parser";
 
@@ -16,7 +16,7 @@ const server = http.createServer(app)
 
 const contactFormRequests = new Map<string, number>()
 
-const wss = new Server({ server: server })
+const wss = new Server({server: server})
 
 let transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST ?? "",
@@ -64,11 +64,19 @@ app.post('/api/sendMessage', (req, res) => {
             return;
         }
     }
+
     if (req.body == null || req.body.email == null || req.body.subject == null || req.body.name == null || req.body.content == null) {
         res.send("Bad request");
-        res.status(502);
+        res.status(403);
         return;
     }
+
+    if (req.body.email.includes("@vortezz.dev") || req.body.email.includes("@vrtz.dev") || req.body.email.includes("@vortezz.fr")) {
+        res.send("Bad request");
+        res.status(403);
+        return;
+    }
+
     const email: string = req.body.email;
     const subject: string = req.body.subject;
     const content: string = req.body.content;
@@ -128,21 +136,27 @@ app.post('/api/sendMessage', (req, res) => {
     <div id="bg">
     </div>`
 
-    transporter.sendMail({
-        from: '"Vortezz" <noreply@vortezz.dev>',
-        to: email,
-        subject: "vortezz.dev contact form summary",
-        text: content,
-        html: html,
-    })
+    try {
+        transporter.sendMail({
+            from: '"Vortezz" <noreply@vortezz.dev>',
+            to: email,
+            subject: "vortezz.dev contact form summary",
+            text: content,
+            html: html,
+        })
 
-    transporter.sendMail({
-        from: '"Vortezz" <noreply@vortezz.dev>',
-        to: "contact@vortezz.dev",
-        subject: "Contact form : " + subject,
-        text: content,
-        html: htmlToVortezz,
-    })
+        transporter.sendMail({
+            from: '"Vortezz" <noreply@vortezz.dev>',
+            to: "contact@vortezz.dev",
+            subject: "Contact form : " + subject,
+            text: content,
+            html: htmlToVortezz,
+        })
+    } catch (e) {
+        console.log(e);
+        res.send("Bad request");
+        res.status(403);
+    }
 
     contactFormRequests.set(req.headers["x-real-ip"]?.length == 1 ? req.headers["x-real-ip"][0] : "", Date.now());
 
