@@ -50,7 +50,11 @@ export default class Status extends Component {
                     <div className="h-0 w-0 bg-status-yellow"/>
                     <div className="h-0 w-0 bg-status-red"/>
                     <div className="h-0 w-0 bg-status-gray"/>
-                    <div className="h-0 w-0 bg-status-red"/>
+                    <div className="h-0 w-0 text-status-green"/>
+                    <div className="h-0 w-0 text-status-dark_green"/>
+                    <div className="h-0 w-0 text-status-yellow"/>
+                    <div className="h-0 w-0 text-status-red"/>
+                    <div className="h-0 w-0 text-status-gray"/>
                     <Navbar/>
                     <h1 className="text-vortezz-white font-extrabold text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-center m-1">{language.STATUS.TITLE} :</h1>
                     <h1 className="text-vortezz-white text-lg md:text-xl xl:text-2xl text-center">{this.connected && !this.error ? `${language.STATUS.LAST} : ${date.format(new Date(parseInt(this.statuses?.lastUpdate.toString() ?? "0")), "HH:mm:ss")} (${Math.round(((Date.now()) - parseInt(this.statuses?.lastUpdate.toString() ?? "0")) / 1000)}${language.STATUS.AGO})` : language.STATUS.NOCONNECTION}</h1>
