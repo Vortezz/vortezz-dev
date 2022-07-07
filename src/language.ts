@@ -47,7 +47,8 @@ export default {
         PROJECTS: {
             TITLE: "Projects",
             PROJECTS: {
-                EKALIA: "Ekalia is a French association that organizes events mainly on Minecraft"
+                EKALIA: "Ekalia is a French association that organizes events mainly on Minecraft",
+                MOLKKY: "With Mölkky Count, you can now count points in a Mölkky game",
             }
         }
     },

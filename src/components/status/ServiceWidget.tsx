@@ -12,7 +12,7 @@ export default function ServiceWidget(service: Service) {
         </div>
         <div className="h-12 flex w-[calc(264px)] sm:w-[calc(480px)] m-auto p-auto">
             {service.details.map((details, index) => {
-                return <div>
+                return <div key={index}>
                     <div data-tip data-for={`${index}-${service.name.toLocaleLowerCase().replace(" ", "_")}`}
                          key={index}
                          className={`h-12 w-1 sm:w-2 bg-status-${details.color} m-[calc(0.15rem)] sm:m-1 rounded-full`}/>

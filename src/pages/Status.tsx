@@ -24,7 +24,6 @@ export default class Status extends Component {
         }
 
         this.wss.onopen = function (e) {
-            console.log("Open")
             parent.error = false;
             parent.connected = true;
         }
@@ -33,7 +32,6 @@ export default class Status extends Component {
             const data: Statuses = JSON.parse(e.data);
             clearInterval(interval);
             parent.statuses = data;
-            console.log(parent.statuses)
             parent.forceUpdate()
             interval = setInterval(() => {
                 parent.forceUpdate()
@@ -45,6 +43,7 @@ export default class Status extends Component {
         return (
             <div>
                 <div className="w-full bg-vortezz-gray2 top-0 left-0 min-h-[calc(90%)]">
+
                     <div className="h-0 w-0 bg-status-green"/>
                     <div className="h-0 w-0 bg-status-dark_green"/>
                     <div className="h-0 w-0 bg-status-yellow"/>
@@ -55,6 +54,7 @@ export default class Status extends Component {
                     <div className="h-0 w-0 text-status-yellow"/>
                     <div className="h-0 w-0 text-status-red"/>
                     <div className="h-0 w-0 text-status-gray"/>
+
                     <Navbar/>
                     <h1 className="text-vortezz-white font-extrabold text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-center m-1">{language.STATUS.TITLE} :</h1>
                     <h1 className="text-vortezz-white text-lg md:text-xl xl:text-2xl text-center">{this.connected && !this.error ? `${language.STATUS.LAST} : ${date.format(new Date(parseInt(this.statuses?.lastUpdate.toString() ?? "0")), "HH:mm:ss")} (${Math.round(((Date.now()) - parseInt(this.statuses?.lastUpdate.toString() ?? "0")) / 1000)}${language.STATUS.AGO})` : language.STATUS.NOCONNECTION}</h1>
@@ -83,8 +83,4 @@ export default class Status extends Component {
             </div>
         )
     }
-}
-
-interface StatusStateProps {
-    wss: ReconnectingWebSocket
 }
