@@ -36,7 +36,15 @@ export default {
             YEAR_2019: "Created my first web page. Studied HTML and CSS",
             YEAR_2020: "Learnt PHP, JS and bases of Java and Bash",
             YEAR_2021: "Deepened my JS, Java and Bash knowledge. Discovered Flutter, React and Tailwind",
-            YEAR_2022: "Joined Ekalia, but who knows what holds the future ?",
+            JANUARY_2022: {
+                DATE: "January 3, 2022",
+                DESC: "Joined Ekalia as a Java developer",
+            },
+            YEAR_2022: "Did a lot of things during my offtime, mainly using Java, Typescript and Flutter",
+            FUTURE: {
+                DATE: "Future",
+                DESC: "Who knows what holds the future ?",
+            },
         },
         SKILLS: {
             TITLE: "Skills",

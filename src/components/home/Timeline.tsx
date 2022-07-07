@@ -8,8 +8,11 @@ import {
 
 export default function Timeline() {
     return (<div className="flex flex-col md:grid grid-cols-9 mx-auto p-8 text-blue-50">
-        <TopRightTimelineComponent icon={"bx bxs-calendar"} title={"2022"}
-                                   description={language.ABOUT.TIMELINE.YEAR_2022}/>
+        <TopRightTimelineComponent icon={"bx bx-question-mark"} title={language.ABOUT.TIMELINE.FUTURE.DATE}
+                                   description={language.ABOUT.TIMELINE.FUTURE.DESC}/>
+        <LeftTimelineComponent icon={"bx bxs-time"} title={"2022"} description={language.ABOUT.TIMELINE.YEAR_2022}/>
+        <RightTimelineComponent icon={"bx bxl-java"} title={language.ABOUT.TIMELINE.JANUARY_2022.DATE}
+                                description={language.ABOUT.TIMELINE.JANUARY_2022.DESC}/>
         <LeftTimelineComponent icon={"bx bxl-flutter"} title={"2021"} description={language.ABOUT.TIMELINE.YEAR_2021}/>
         <RightTimelineComponent icon={"bx bxs-virus"} title={"2020"} description={language.ABOUT.TIMELINE.YEAR_2020}/>
         <LeftTimelineComponent icon={"bx bxl-html5"} title={"2019"} description={language.ABOUT.TIMELINE.YEAR_2019}/>
