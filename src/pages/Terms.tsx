@@ -5,7 +5,7 @@ import Wave from "../components/Wave";
 
 export default function Terms() {
     return (
-        <div className="w-full bg-vortezz-gray2 min-h-[calc(90%)] text-white text-justify">
+        <div className="w-full bg-vortezz-gray2 min-h-[calc(90%)] text-vortezz-white text-justify">
             <Navbar />
             <div className="w-[calc(95%)] m-auto">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold m-4">Terms and Conditions</h2>
