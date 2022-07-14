@@ -1,11 +1,11 @@
-import { Connection } from "mysql2";
+import {Connection} from "mysql2";
 import fetch from "node-fetch";
 import Statuses from "./struct/Statuses";
 import ServiceData from "./struct/ServiceData";
 import ServiceDetails from "./struct/ServiceDetails";
 import Service from "./struct/Service";
 import Details from "./struct/Details";
-import WebSocket, { Server } from "ws";
+import WebSocket, {Server} from "ws";
 
 export async function resolveStatus(connection: Connection) {
     const promise = connection.promise();
@@ -21,7 +21,7 @@ export async function resolveStatus(connection: Connection) {
 
     for (let i: number = 0; i < services.length; i++) {
 
-        var day = new Date();
+        let day = new Date();
         day.setUTCHours(-1, 0, 0, 0);
 
         const detailsObject: Details[] = [];
@@ -32,58 +32,81 @@ export async function resolveStatus(connection: Connection) {
 
         const serviceDetails: any = serviceTyped;
 
+        let isUp = false;
+
         if (serviceDetails.length == 0) {
-            let isUp = false;
             if (service.type == 0) {
                 isUp = (await fetch(service.link)).status == 200
             }
             if (!isUp) {
                 isOneServiceDown = true;
             }
-            promise.query("INSERT INTO `status_history`(`service`, `timestamp`, `uptime`, `up`, `check_count`) VALUES (?,?,?,?,?)", [service.id, day.getTime() / 1000, isUp ? 100 : 0, isUp ? 1 : 0, 1])
-            serviceDetails.push({ timestamp: (day.getTime() / 1000).toString(), uptime: isUp ? 100 : 0, up: isUp ? 1 : 0, check_count: 1 })
+            await promise.query("INSERT INTO `status_history`(`service`, `timestamp`, `uptime`, `up`, `check_count`) VALUES (?,?,?,?,?)", [service.id, day.getTime() / 1000, isUp ? 100 : 0, isUp ? 1 : 0, 1])
+            serviceDetails.push({
+                timestamp: (day.getTime() / 1000).toString(),
+                uptime: isUp ? 100 : 0,
+                up: isUp ? 1 : 0,
+                check_count: 1
+            })
         }
 
         let localUptime: number = 0;
 
         for (let j: number = 0; j < serviceDetails.length; j++) {
             let details: ServiceDetails = serviceDetails[j];
+
             if (j == 0) {
-                let isUp = false;
                 if (service.type == 0) {
                     try {
                         isUp = (await fetch(service.link)).status == 200 || (await fetch(service.link)).status == 302
-                    } catch (e) { }
+                    } catch (e) {
+                    }
                 }
+
                 if (!isUp) {
                     isOneServiceDown = true;
                 }
+
                 if (details.timestamp != day.getTime() / 1000) {
                     promise.query("INSERT INTO `status_history`(`service`, `timestamp`, `uptime`, `up`, `check_count`) VALUES (?,?,?,?,?)", [service.id, day.getTime() / 1000, isUp ? 100 : 0, isUp ? 1 : 0, 1])
                     localUptime += details.uptime;
-                    detailsObject.push({ color: isUp ? "green" : "red", uptime: isUp ? 100 : 0, date: (day.getTime() / 1000).toString() })
+                    detailsObject.push({
+                        color: isUp ? "green" : "red",
+                        uptime: isUp ? 100 : 0,
+                        date: (day.getTime() / 1000).toString()
+                    })
                 } else {
                     promise.query("UPDATE `status_history` SET `uptime`=?,`up`=?,`check_count`=`check_count`+1 WHERE `timestamp` = ? AND `service` = ?", [Math.round((details.uptime * details.check_count + (isUp ? 100 : 0)) / (details.check_count + 1) * 100) / 100, isUp ? 1 : 0, day.getTime() / 1000, service.id])
                     details.uptime = Math.round(((details.uptime * details.check_count + (isUp ? 100 : 0)) / (details.check_count + 1)) * 100) / 100
                 }
             }
+
             localUptime += details.uptime;
-            detailsObject.push({ color: details.uptime >= 99.5 ? "green" : details.uptime >= 97.5 ? "dark_green" : details.uptime >= 95 ? "yellow" : "red", uptime: details.uptime, date: details.timestamp.toString() })
+            detailsObject.push({
+                color: details.uptime >= 99.5 ? "green" : details.uptime >= 97.5 ? "dark_green" : details.uptime >= 95 ? "yellow" : "red",
+                uptime: details.uptime,
+                date: details.timestamp.toString()
+            })
         }
 
         while (detailsObject.length < 30) {
-            detailsObject.push({ color: "gray", uptime: -1, date: (parseInt(detailsObject[detailsObject.length - 1].date) - 60 * 60 * 24).toString() })
+            detailsObject.push({
+                color: "gray",
+                uptime: -1,
+                date: (parseInt(detailsObject[detailsObject.length - 1].date) - 60 * 60 * 24).toString()
+            })
         }
 
         detailsObject.reverse();
 
         localUptime /= serviceDetails.length + (serviceDetails[0].timestamp != day.getTime() / 1000 ? 1 : 0);
 
-        const serviceObject = <Service><unknown>{};
-
-        serviceObject.uptime = Math.round(localUptime * 100) / 100;
-        serviceObject.details = detailsObject;
-        serviceObject.name = service.name;
+        const serviceObject = <Service>{
+            uptime: Math.round(localUptime * 100) / 100,
+            details: detailsObject,
+            name: service.name,
+            up: isUp,
+        };
 
         servicesObject.push(serviceObject)
 
@@ -92,14 +115,12 @@ export async function resolveStatus(connection: Connection) {
 
     globalUptime /= services.length;
 
-    let status = <Statuses>{
+    return <Statuses>{
         uptime: globalUptime,
         lastUpdate: Date.now(),
         problems: isOneServiceDown ? "down" : "",
         services: servicesObject
     };
-
-    return status;
 }
 
 function createStatusJson(status: Statuses): string {
@@ -117,9 +138,11 @@ export async function initStatusChecker(wss: Server, connection: Connection) {
     setInterval(async () => {
         status = await resolveStatus(connection);
         date = Date.now();
+
         wss.clients.forEach((client: WebSocket) => {
             client.send(createStatusJson(status));
         })
-        console.log("Status edited")
+
+        console.log(`[${new Date().toLocaleString()}] Status updated`)
     }, 60000)
 }

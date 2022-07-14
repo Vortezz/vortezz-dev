@@ -65,18 +65,19 @@ export default class Status extends Component {
                             ?
                             <div className="w-full bg-vortezz-gray3 flex">
                                 <h1 className="text-vortezz-white font-extrabold text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-center m-auto flex">
-                                    <i className={`bx bxs-circle mr-4 text-status-${this.statuses?.problems == "" ? "green" : "red"}`}></i>{this.statuses?.problems == "" ? language.STATUS.STATE.ON : language.STATUS.STATE.PROBLEMS}
+                                    <i className={`bx bxs-circle mr-4 my-auto text-status-${this.statuses?.problems == "" ? "green" : "red"}`}/><span
+                                    className={"my-auto"}>{this.statuses?.problems == "" ? language.STATUS.STATE.ON : language.STATUS.STATE.PROBLEMS}</span>
                                 </h1>
                             </div>
                             :
                             <div className="w-full bg-vortezz-gray3 flex">
                                 <h1 className="text-vortezz-white font-extrabold text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-center m-auto flex">
-                                    <i className={`bx bxs-circle mr-4 text-status-yellow`}></i>{language.STATUS.STATE.CONNECTING}
+                                    <i className={`bx bxs-circle mr-4 text-status-yellow`}/>{language.STATUS.STATE.CONNECTING}
                                 </h1>
                             </div>
                     }
                     {Wave(2)}
-                    {Services(this.statuses?.services)}
+                    <Services services={this.statuses?.services}/>
                 </div>
                 {Wave(4)}
                 <Footer/>
