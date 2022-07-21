@@ -56,7 +56,7 @@ class Service {
 
       await Database.table("status_history").insert({
         service: service.id,
-        timestamp: day.getTime() / 1000,
+        timestamp: day.getTime(),
         uptime: this.uptime,
         up: this.up,
         checkcount: 1
@@ -68,7 +68,7 @@ class Service {
         uptime: this.uptime,
         up: this.up,
         checkcount: row.checkcount + 1
-      }).where("service", service.id).where("timestamp", day.getTime() / 1000)
+      }).where("service", service.id).where("timestamp", day.getTime())
     }
 
     const previousHistories = await Database.from("status_history")

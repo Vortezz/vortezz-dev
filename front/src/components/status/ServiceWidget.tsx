@@ -24,7 +24,7 @@ export default function ServiceWidget(service: Service) {
                className={`h-12 w-1 sm:w-2 bg-status-${details.color} m-[calc(0.15rem)] sm:m-1 rounded-full`}/>
           <ReactTooltip place="bottom" id={`${index}-${service.name.toLocaleLowerCase().replace(" ", "_")}`}
                         type="dark" effect="solid">
-            <h1>{date.format(new Date(details.date.getTime() * 1000), "ddd, MMM DD YYYY")}</h1>
+            <h1>{date.format(new Date(details.date), "ddd, MMM DD YYYY")}</h1>
             <p>{details.uptime == -1 ? language.STATUS.NODATA : `${details.uptime}%`}</p>
           </ReactTooltip>
         </div>
