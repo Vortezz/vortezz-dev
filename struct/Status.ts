@@ -40,9 +40,13 @@ class Service {
       .first();
 
     if (service.type === StatusType.HTTP) {
-      const request = await axios.get(service.link)
+      try {
+        const request = await axios.get(service.link)
 
-      if (request.status !== 200) {
+        if (request.status !== 200) {
+          this.up = false;
+        }
+      } catch (e) {
         this.up = false;
       }
     }
