@@ -36,7 +36,7 @@ export default class PostsController {
 
     mailCache.set(context.request.ip(), Date.now())
 
-    const mailContent = readFileSync(__dirname.replace("\\app\\Controllers\\Http", "\\resources\\contact.html")).toString()
+    const mailContent = readFileSync(__dirname.replace("/app/Controllers/Http", "/resources/contact.html")).toString()
       .replace("${name}", escapeHtml(name))
       .replace("${email}", escapeHtml(email))
       .replace("${subject}", escapeHtml(subject))

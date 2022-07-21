@@ -18,7 +18,7 @@ Route.group(() => {
 
 Route.any('/static/*', async ({request, response}: HttpContextContract) => {
   const type = request.url().split("/").pop() ?? "index.html";
-  let path = __dirname.replace("\\start", "\\front\\build") + request.url().replace(/\//gm, "\\");
+  let path = __dirname.replace("/start", "/front/build") + request.url().replace(/\//gm, "/");
   response.type(type)
 
   if (type.includes(".png")) {
@@ -30,9 +30,9 @@ Route.any('/static/*', async ({request, response}: HttpContextContract) => {
 
 Route.any('/logo.png', async ({response}: HttpContextContract) => {
   response.type("png")
-  return response.stream(fs.createReadStream(__dirname.replace("\\start", "\\front\\build") + '\\logo.png'))
+  return response.stream(fs.createReadStream(__dirname.replace("/start", "/front/build") + '/logo.png'))
 })
 
 Route.any('*', async () => {
-  return View.render(__dirname.replace("\\start", "\\front\\build") + '\\index.html')
+  return View.render(__dirname.replace("/start", "/front/build") + '/index.html')
 })
