@@ -3,8 +3,9 @@ import Service from "../../struct/Service";
 import date from "date-and-time";
 import language from "../../language";
 import ReactTooltip from "react-tooltip";
+import Client from "../../struct/Client";
 
-export default function ServiceWidget(service: Service) {
+export default function ServiceWidget({service, client}: { service: Service, client: Client }) {
   return <div className={`h-40 w-[calc(95%)] m-auto`}>
     <div className="flex justify-between w-[calc(100%)] max-w-[calc(40rem)] m-auto">
       <div className={"flex"}>
@@ -25,7 +26,7 @@ export default function ServiceWidget(service: Service) {
           <ReactTooltip place="bottom" id={`${index}-${service.name.toLocaleLowerCase().replace(" ", "_")}`}
                         type="dark" effect="solid">
             <h1>{date.format(new Date(details.date), "ddd, MMM DD YYYY")}</h1>
-            <p>{details.uptime == -1 ? language.STATUS.NODATA : `${details.uptime}%`}</p>
+            <p>{details.uptime === -1 ? client.getTranslation("status.state.nodata") : `${details.uptime}%`}</p>
           </ReactTooltip>
         </div>
       })}

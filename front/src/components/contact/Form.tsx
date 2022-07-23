@@ -4,6 +4,7 @@ import MuiAlert, {AlertProps} from '@mui/material/Alert';
 import React, {useState} from "react";
 import language from "../../language";
 import TextInput from "../inputs/TextInput";
+import Client from "../../struct/Client";
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -12,7 +13,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export default function Form() {
+export default function Form({client}: { client: Client }) {
 
   const [fieldsFilledAlert, setFieldsFilledAlert] = useState<boolean>(false);
 
@@ -60,7 +61,7 @@ export default function Form() {
       method: 'POST',
       body: urlencoded,
       headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
-      redirect: 'follow'
+      redirect: 'follow',
     })
 
     if (request.status != 200) {
@@ -83,7 +84,7 @@ export default function Form() {
       <Alert onClose={() => {
         setFieldsFilledAlert(false)
       }} severity="error" sx={{width: '100%'}}>
-        {language.CONTACT.FORM.ALERTS.FILL}
+        {client.getTranslation("contact.alerts.fill")}
       </Alert>
     </Snackbar>
     <Snackbar open={invalidEmailAlert} autoHideDuration={6000} onClose={() => {
@@ -92,7 +93,7 @@ export default function Form() {
       <Alert onClose={() => {
         setInvalidEmailAlert(false)
       }} severity="error" sx={{width: '100%'}}>
-        {language.CONTACT.FORM.ALERTS.INVALID_MAIL}
+        {client.getTranslation("contact.alerts.invalid_mail")}
       </Alert>
     </Snackbar>
     <Snackbar open={mailError} autoHideDuration={6000} onClose={() => {
@@ -101,7 +102,7 @@ export default function Form() {
       <Alert onClose={() => {
         setMailError(false)
       }} severity="error" sx={{width: '100%'}}>
-        {language.CONTACT.FORM.ALERTS.SENDING_MAIL}
+        {client.getTranslation("contact.alerts.sending_mail")}
       </Alert>
     </Snackbar>
     <Snackbar open={messageSended} autoHideDuration={6000} onClose={() => {
@@ -110,36 +111,37 @@ export default function Form() {
       <Alert onClose={() => {
         setMessageSended(false)
       }} severity="success" sx={{width: '100%'}}>
-        {language.CONTACT.FORM.ALERTS.MESSAGE_SENDED}
+        {client.getTranslation("contact.alerts.mail_sent")}
       </Alert>
     </Snackbar>
     <div className="max-w-[calc(40rem)] w-[calc(95%)] flex flex-col m-auto">
       <TextInput name={"email"}
-                 label={language.CONTACT.FORM.EMAIL}
-                 placeholder={"Email"}
+                 label={client.getTranslation("contact.form.email")}
+                 placeholder={client.getTranslation("contact.form.email")}
                  type={""}
                  icon={"bx bx-envelope"}
       />
       <TextInput name={"subject"}
-                 label={language.CONTACT.FORM.SUBJECT}
-                 placeholder={"Subject"}
+                 label={client.getTranslation("contact.form.subject")}
+                 placeholder={client.getTranslation("contact.form.subject")}
                  type={""}
                  icon={"bx bx-user"}
       />
       <TextInput name={"name"}
-                 label={language.CONTACT.FORM.NAME}
-                 placeholder={"Name"}
+                 label={client.getTranslation("contact.form.name")}
+                 placeholder={client.getTranslation("contact.form.name")}
                  type={""}
                  icon={"bx bx-user"}
       />
-      <label className={"text-xl text-vortezz-white"} htmlFor={"message"}>Message</label>
-      <textarea className="rounded-lg text-xl focus:outline-none focus:ring-0 border-none h-40 px-2" id="message"
+      <label className={"text-xl text-vortezz-white"}
+             htmlFor={"message"}>{client.getTranslation("contact.form.message")}</label>
+      <textarea className="rounded-lg text-xl focus:outline-none focus:ring-0 border-none h-40 px-4 py-2" id="message"
                 placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam..."
                 required/>
       <div className="w-full flex">
         <div
           className={"p-2 bg-vortezz-purple rounded-lg w-[calc(90%)] max-w-[calc(20rem)] text-center text-vortezz-white text-xl font-semibold cursor-pointer mx-auto mt-6"}
-          onClick={doForm}>{language.CONTACT.FORM.SEND}</div>
+          onClick={doForm}>{client.getTranslation("contact.form.send")}</div>
       </div>
     </div>
   </div>)

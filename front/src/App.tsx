@@ -7,24 +7,27 @@ import Home from "./pages/Home";
 import Status from "./pages/Status";
 import Terms from "./pages/Terms";
 import Client from "./struct/Client";
+import {useState} from "react";
 
 export default function App({client}: { client: Client }) {
-  if (!client) {
-    client = new Client();
-  }
+  const [language, setLanguage] = useState(client.getLanguage());
+
+  client.on("languageChanged", () => {
+    setLanguage(client.getLanguage());
+  });
 
   return (<BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home/>}/>
+      <Route path="/" element={<Home client={client}/>}/>
       <Route path="/status" element={<Status client={client}/>}/>
-      <Route path="/branding" element={<Brand/>}/>
-      <Route path="/contact" element={<Contact/>}/>
-      <Route path="/terms" element={<Terms/>}/>
+      <Route path="/branding" element={<Brand client={client}/>}/>
+      <Route path="/contact" element={<Contact client={client}/>}/>
+      <Route path="/terms" element={<Terms client={client}/>}/>
       <Route path="/discord" element={<DiscordRedirect/>}/>
       <Route path="/youtube" element={<YoutubeRedirect/>}/>
       <Route path="/github" element={<GithubRedirect/>}/>
       <Route path="/twitter" element={<TwitterRedirect/>}/>
-      <Route path="*" element={<Error404/>}/>
+      <Route path="*" element={<Error404 client={client}/>}/>
     </Routes>
   </BrowserRouter>)
 }
