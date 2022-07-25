@@ -3,7 +3,7 @@ import React from "react";
 export default function TextInput({name, label, type, placeholder, icon}: Props) {
   return (
     <div>
-      <label className={"text-xl text-vortezz-white"} htmlFor={name}>{label}</label>
+      <label className={"text-xl dark:text-vortezz-white text-vortezz-gray-1"} htmlFor={name}>{label}</label>
       <div className="flex mb-4 h-15 bg-vortezz-white rounded-lg pr-2 text-vortezz-gray2">
         <div className="flex -mr-px justify-center w-15 px-4 py-2">
           <span className="flex bg-white text-2xl text-vortezz-gray4">

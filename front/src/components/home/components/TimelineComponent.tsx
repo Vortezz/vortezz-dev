@@ -13,7 +13,7 @@ export function BottomLeftTimelineComponent({icon, title, description}: Props) {
       <div className="col-start-5 col-end-6 md:mx-auto relative mr-10">
         <div className="h-[calc(60%)] top-1/2 w-6 flex items-center justify-center">
           <div
-            className="h-[calc(60%)] bottom-[calc(45%)] absolute w-1 bg-vortezz-white pointer-events-none"/>
+            className="h-[calc(60%)] bottom-[calc(45%)] absolute w-1 dark:bg-vortezz-white bg-vortezz-gray1 pointer-events-none"/>
         </div>
         <div className="w-12 h-12 absolute top-1/2 -mt-6 -ml-3 rounded-full bg-vortezz-purple shadow flex">
           <i className={`${icon} m-auto text-3xl`}/>
@@ -35,7 +35,7 @@ export function LeftTimelineComponent({icon, title, description}: Props) {
       </div>
       <div className="col-start-5 col-end-6 md:mx-auto relative mr-10">
         <div className="h-full w-6 flex items-center justify-center">
-          <div className="h-full w-1 bg-vortezz-white pointer-events-none"/>
+          <div className="h-full w-1 dark:bg-vortezz-white bg-vortezz-gray1 pointer-events-none"/>
         </div>
         <div className="w-12 h-12 absolute top-1/2 -mt-6 -ml-3 rounded-full bg-vortezz-purple shadow flex">
           <i className={`${icon} m-auto text-3xl`}/>
@@ -50,9 +50,9 @@ export function TopRightTimelineComponent({icon, title, description}: Props) {
     <div className="flex md:contents z-10">
       <div className="col-start-5 col-end-6 mr-10 md:mx-auto relative">
         <div className="h-full w-6 flex items-center justify-center">
-          <div className="h-full w-1 bg-vortezz-white pointer-events-none">
+          <div className="h-full w-1 dark:bg-vortezz-white bg-vortezz-gray1 pointer-events-none">
             <i
-              className="bx bxs-up-arrow text-center mx-auto col-start-5 col-end-6 text-4xl -mb-4 absolute -top-6 -right-[calc(0.4rem)]"/>
+              className="bx bxs-up-arrow text-center mx-auto col-start-5 col-end-6 text-4xl -mb-4 absolute dark:text-vortezz-white text-vortezz-gray1 -top-6 -right-[calc(0.4rem)]"/>
           </div>
         </div>
         <div className="w-12 h-12 absolute top-1/2 -mt-6 -ml-3 rounded-full bg-vortezz-red shadow flex">
@@ -74,7 +74,7 @@ export function RightTimelineComponent({icon, title, description}: Props) {
     <div className="flex md:contents z-10">
       <div className="col-start-5 col-end-6 mr-10 md:mx-auto relative">
         <div className="h-full w-6 flex items-center justify-center">
-          <div className="h-full w-1 bg-vortezz-white pointer-events-none"/>
+          <div className="h-full w-1 dark:bg-vortezz-white bg-vortezz-gray1 pointer-events-none"/>
         </div>
         <div className="w-12 h-12 absolute top-1/2 -mt-6 -ml-3 rounded-full bg-vortezz-red shadow flex">
           <i className={`${icon} m-auto text-3xl`}/>

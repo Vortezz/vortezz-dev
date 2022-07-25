@@ -4,11 +4,11 @@ import Client from "../struct/Client";
 
 export default function Footer({client}: { client: Client }) {
   return (<div
-    className="h-60 w-full bg-vortezz-gray1 flex justify-around text-vortezz-white relative clear-both flex-col md:flex-row">
+    className="h-60 w-full dark:bg-vortezz-gray1 bg-light-gray1 flex justify-around dark:text-vortezz-white text-vortezz-gray-1 relative clear-both flex-col md:flex-row">
     <div
       className="m-auto flex flex-col font-semibold text-xl sm:text-xl md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl w-[calc(90%)] md:w-2/5">
       <h1 className="m-4">{client.getTranslation("bottombar.links.miss")}</h1>
-      <div className="w-full flex flex-row justify-between text-3xl m-auto md:mx-4">
+      <div className="w-full flex flex-row justify-between text-3xl m-auto md:mx-4 text-vortezz-white">
         <Link to="/twitter" target="_blank">
           <i className="bx bxl-twitter bg-social-twitter p-2 rounded-full"/>
         </Link>

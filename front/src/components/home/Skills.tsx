@@ -6,7 +6,7 @@ import Others from "./skills/Others";
 import Client from "../../struct/Client";
 
 export default function Skills({client}: { client: Client }) {
-  return (<div className="text-vortezz-white text-center bg-vortezz-gray2">
+  return (<div className="dark:text-vortezz-white text-vortezz-gray-1 text-center dark:bg-vortezz-gray2 bg-light-gray2">
     <h1
       className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold">{client.getTranslation("about.skills.title")}</h1>
     <h1

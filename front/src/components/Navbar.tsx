@@ -11,7 +11,7 @@ export default function Navbar({client}: { client: Client }) {
 
   return (<div>
     <div
-      className="h-20 w-full dark:bg-vortezz-gray1 bg-light-gray1 fixed top-0 left-0 flex justify-between dark:text-vortezz-white text-vortezz-gray1 z-50">
+      className="h-20 w-full dark:bg-vortezz-gray1 bg-light-gray1 bg-light-gray1 fixed top-0 left-0 flex justify-between dark:text-vortezz-white text-vortezz-gray-1 text-vortezz-gray1 z-50">
       <h1 className="my-auto ml-8 font-bold text-xl flex"><img className="h-6 w-6 my-auto" src={logo}/> <span
         className="ml-2 my-auto">Vortezz</span></h1>
       <ul className="my-auto flex-row font-semibold text-l hidden md:flex">
@@ -33,7 +33,8 @@ export default function Navbar({client}: { client: Client }) {
           }} className={`bx bx-chevron-down text-xl cursor-pointer ${isLanguageMenuOpen && "rotate-180"}`}/>
 
           {isLanguageMenuOpen &&
-            <div className={"bg-vortezz-gray1 -ml-[calc(0.5rem)] w-[calc(4.25rem)] absolute mt-8 z-50 rounded-b-md"}>
+            <div
+              className={"dark:bg-vortezz-gray1 bg-light-gray1 -ml-[calc(0.5rem)] w-[calc(4.25rem)] absolute mt-8 z-50 rounded-b-md"}>
               <div onClick={() => {
                 client.setLanguage("en");
                 setLanguageMenuOpen(false);
@@ -63,17 +64,21 @@ export default function Navbar({client}: { client: Client }) {
       </div>
     </div>
     <ul
-      className={"z-50 my-auto flex-col font-semibold text-l md:hidden fixed w-full mb-4 bg-vortezz-gray1 top-20" + (isMenuOpen ? " flex opacity-1" : " hidden opacity-0")}>
-      <Link to="/" className="w-full text-center bg-vortezz-gray1 text-vortezz-white text-xl">
+      className={"z-50 my-auto flex-col font-semibold text-l md:hidden fixed w-full mb-4 dark:bg-vortezz-gray1 bg-light-gray1 top-20" + (isMenuOpen ? " flex opacity-1" : " hidden opacity-0")}>
+      <Link to="/"
+            className="w-full text-center dark:bg-vortezz-gray1 bg-light-gray1 dark:text-vortezz-white text-vortezz-gray-1 text-xl">
         <li className="hover:text-vortezz-purple cursor-pointer">{client.getTranslation("navbar.about")}</li>
       </Link>
-      <Link to="/contact" className="w-full text-center bg-vortezz-gray1 text-vortezz-white text-xl">
+      <Link to="/contact"
+            className="w-full text-center dark:bg-vortezz-gray1 bg-light-gray1 dark:text-vortezz-white text-vortezz-gray-1 text-xl">
         <li className="hover:text-vortezz-purple cursor-pointer">{client.getTranslation("navbar.contact")}</li>
       </Link>
-      <Link to="/github" target="_blank" className="w-full text-center bg-vortezz-gray1 text-vortezz-white text-xl">
+      <Link to="/github" target="_blank"
+            className="w-full text-center dark:bg-vortezz-gray1 bg-light-gray1 dark:text-vortezz-white text-vortezz-gray-1 text-xl">
         <li className="hover:text-vortezz-purple cursor-pointer">Github</li>
       </Link>
-      <div className="w-full text-center bg-vortezz-gray1 text-vortezz-white text-xl">
+      <div
+        className="w-full text-center dark:bg-vortezz-gray1 bg-light-gray1 dark:text-vortezz-white text-vortezz-gray-1 text-xl">
         <li className="hover:text-vortezz-purple cursor-pointer">ㅤ</li>
       </div>
     </ul>

@@ -27,24 +27,24 @@ export default function Home({client}: { client: Client }) {
   })
 
   return (
-    <div className="h-screen w-full dark:bg-vortezz-gray2 bg-light-gray2 min-height-full">
+    <div className="h-screen w-full dark:bg-vortezz-gray2 bg-light-gray2 bg-light-gray2 min-height-full">
       <Navbar client={client}/>
       <h1
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold dark:text-vortezz-white text-vortezz-gray-1 text-center mt-6 group">👋 {client.getTranslation("about.welcome.hey")}&nbsp;
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold dark:text-vortezz-white text-vortezz-gray-1 text-vortezz-gray-1 text-center mt-6 group">👋 {client.getTranslation("about.welcome.hey")}&nbsp;
         <span className="group-hover:text-vortezz-purple">Vortezz</span>,</h1>
       <h2
-        className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-vortezz-white text-center mt-2 group">{client.getTranslation("about.welcome.prefix")}&nbsp;
+        className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold dark:text-vortezz-white text-vortezz-gray-1 text-center mt-2 group">{client.getTranslation("about.welcome.prefix")}&nbsp;
         <span className="group"><span className="group-hover:text-social-discord">{frenchArray[0]}</span><span
           className="group-hover:text-vortezz-white">{frenchArray[1]}</span><span
           className="group-hover:text-social-youtube">{frenchArray[2]}</span></span>{client.getTranslation("about.welcome.suffix") && " "}{client.getTranslation("about.welcome.suffix")}.
       </h2>
-      {Wave(1)}
+      <Wave variant={1} client={client}/>
       <Who client={client}/>
-      {Wave(2)}
+      <Wave variant={2} client={client}/>
       <Skills client={client}/>
-      {Wave(1)}
+      <Wave variant={1} client={client}/>
       <Projects client={client}/>
-      {Wave(3)}
+      <Wave variant={3} client={client}/>
       <Footer client={client}/>
     </div>
   )

@@ -31,9 +31,9 @@ module.exports = {
           'gray': '#464545',
         },
         'light': {
-          'gray1': '#969595',
-          'gray2': '#B0B0B0',
-          'gray3': '#C6C5C5',
+          'gray1': '#989898',
+          'gray2': '#d7d5d5',
+          'gray3': '#FBFAFA',
         },
       },
       backgroundImage: {

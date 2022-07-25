@@ -77,7 +77,7 @@ export default function Form({client}: { client: Client }) {
     subject.value = ""
   }
 
-  return (<div className="w-full bg-vortezz-gray3">
+  return (<div className="w-full dark:bg-vortezz-gray3 bg-light-gray3">
     <Snackbar open={fieldsFilledAlert} autoHideDuration={6000} onClose={() => {
       setFieldsFilledAlert(false)
     }}>
@@ -133,14 +133,14 @@ export default function Form({client}: { client: Client }) {
                  type={""}
                  icon={"bx bx-user"}
       />
-      <label className={"text-xl text-vortezz-white"}
+      <label className={"text-xl dark:text-vortezz-white text-vortezz-gray-1"}
              htmlFor={"message"}>{client.getTranslation("contact.form.message")}</label>
       <textarea className="rounded-lg text-xl focus:outline-none focus:ring-0 border-none h-40 px-4 py-2" id="message"
                 placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam..."
                 required/>
       <div className="w-full flex">
         <div
-          className={"p-2 bg-vortezz-purple rounded-lg w-[calc(90%)] max-w-[calc(20rem)] text-center text-vortezz-white text-xl font-semibold cursor-pointer mx-auto mt-6"}
+          className={"p-2 bg-vortezz-purple rounded-lg w-[calc(90%)] max-w-[calc(20rem)] text-center dark:text-vortezz-white text-vortezz-gray-1 text-xl font-semibold cursor-pointer mx-auto mt-6"}
           onClick={doForm}>{client.getTranslation("contact.form.send")}</div>
       </div>
     </div>
