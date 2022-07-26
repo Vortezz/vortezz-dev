@@ -62,7 +62,7 @@ class Service {
         checkcount: 1
       })
     } else {
-      this.uptime += Math.round((row.uptime * row.checkcount + (this.up ? 100 : 0)) / (row.checkcount + 1) * 100) / 100;
+      this.uptime = Math.round((row.uptime * row.checkcount + (this.up ? 100 : 0)) / (row.checkcount + 1) * 100) / 100;
 
       await Database.from("status_history").update({
         uptime: this.uptime,
@@ -84,9 +84,7 @@ class Service {
         new Date(previousHistory.timestamp)
       ));
     }
-
-    this.uptime = Math.round(this.uptime / (30 - this.statusHistory.length) * 100) / 100;
-
+    
     while (this.statusHistory.length < 30) {
       this.statusHistory.push(new ServiceHistory(
         "gray", -1, new Date(this.statusHistory[this.statusHistory.length - 1].date.getTime() - 1000 * 60 * 60 * 24)
