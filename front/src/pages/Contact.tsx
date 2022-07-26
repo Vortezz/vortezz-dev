@@ -19,10 +19,11 @@ export default function Contact({client}: { client: Client }) {
         <Link
           to="/twitter" target="_blank">Twitter</Link> {client.getTranslation("contact.ways.or")} <Link to="/discord"
                                                                                                         target="_blank">Discord</Link>. {client.getTranslation("contact.ways.also")}&nbsp;
-        <a href="mailto:contact@vortezz.dev">contact@vortezz.dev</a> {client.getTranslation("contact.ways.form")}</h2>
-      <Wave variant={1} client={client} />
+        <a href="mailto:contact@vortezz.dev">contact@vortezz.dev</a>{client.getTranslation("contact.ways.phone")} <a
+          href={"tel:+33652220852"}>+33652220852</a> {client.getTranslation("contact.ways.form")}</h2>
+      <Wave variant={1} client={client}/>
       <Form client={client}/>
-      <Wave variant={3} client={client} />
+      <Wave variant={3} client={client}/>
       <Footer client={client}/>
     </div>
   )

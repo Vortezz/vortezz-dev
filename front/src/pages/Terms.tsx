@@ -6,7 +6,8 @@ import Client from "../struct/Client";
 
 export default function Terms({client}: { client: Client }) {
   return (
-    <div className="w-full dark:bg-vortezz-gray2 bg-light-gray2 min-h-[calc(90%)] dark:text-vortezz-white text-vortezz-gray-1 text-justify">
+    <div
+      className="w-full dark:bg-vortezz-gray2 bg-light-gray2 min-h-[calc(90%)] dark:text-vortezz-white text-vortezz-gray-1 text-justify">
       <Navbar client={client}/>
       <div className="w-[calc(95%)] m-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold m-4">Terms
@@ -197,12 +198,16 @@ export default function Terms({client}: { client: Client }) {
               href="mailto:contact@vortezz.dev">contact@vortezz.dev</a></p>
           </li>
           <li>
+            <p className="text-base md:text-lg xl:text-xl ml-12">By phone: <a
+              href="tel:+33652220852">+33652220852</a></p>
+          </li>
+          <li>
             <p className="text-base md:text-lg xl:text-xl ml-12">By visiting this page on our website: <Link
               to="/contact/" rel="external nofollow noopener" target="_blank">https://vortezz.dev/contact/</Link></p>
           </li>
         </ul>
       </div>
-      <Wave variant={4} client={client} />
+      <Wave variant={4} client={client}/>
       <Footer client={client}/>
     </div>
   )

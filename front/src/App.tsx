@@ -11,9 +11,14 @@ import {useState} from "react";
 
 export default function App({client}: { client: Client }) {
   const [language, setLanguage] = useState(client.getLanguage());
+  const [theme, setTheme] = useState(client.isLightTheme());
 
   client.on("languageChanged", () => {
     setLanguage(client.getLanguage());
+  });
+
+  client.on("themeChanged", () => {
+    setTheme(client.isLightTheme());
   });
 
   return (<BrowserRouter>

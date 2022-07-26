@@ -89,6 +89,11 @@ export default class Client extends EventEmitter {
 
   public setLightTheme(lightTheme: boolean) {
     this.lightTheme = lightTheme;
+    localStorage.setItem("light", lightTheme ? "1" : "0");
+
+    this.emit("themeChanged");
+    
+    document.getElementsByTagName("html")[0].classList.toggle("dark")
   }
 
   public isLightTheme(): boolean {
