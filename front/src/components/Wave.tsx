@@ -1,12 +1,15 @@
-export default function Wave(variant: number) {
+import {client} from "websocket";
+import Client from "../struct/Client";
+
+export default function Wave({variant, client}: { variant: number, client: Client }) {
 
   if (variant == 1) {
     return (<svg id="wave1" viewBox="0 0 1440 100" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                 className="bg-vortezz-gray2 -mb-1">
+                 className="dark:bg-vortezz-gray2 bg-light-gray2 -mb-1">
       <defs>
         <linearGradient id="sw-gradient-1" x1="0" x2="0" y1="1" y2="0">
-          <stop stopColor="rgba(70, 69, 69, 1)" offset="0%"/>
-          <stop stopColor="rgba(70, 69, 69, 1)" offset="100%"/>
+          <stop stopColor={client.isLightTheme() ? "rgba(251, 250, 250, 1)" : "rgba(70, 69, 69, 1)"} offset="0%"/>
+          <stop stopColor={client.isLightTheme() ? "rgba(251, 250, 250, 1)" : "rgba(70, 69, 69, 1)"} offset="100%"/>
         </linearGradient>
       </defs>
       <path fill="url(#sw-gradient-1)"
@@ -14,11 +17,11 @@ export default function Wave(variant: number) {
     </svg>)
   } else if (variant == 2) {
     return (<svg id="wave2" viewBox="0 0 1440 100" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                 className="bg-vortezz-gray3 -mb-1">
+                 className="dark:bg-vortezz-gray3 bg-light-gray3 -mb-1">
       <defs>
         <linearGradient id="sw-gradient-2" x1="0" x2="0" y1="1" y2="0">
-          <stop stopColor="rgba(54, 53, 53, 1)" offset="0%"/>
-          <stop stopColor="rgba(54, 53, 53, 1)" offset="100%"/>
+          <stop stopColor={client.isLightTheme() ? "rgba(215, 213, 213, 1)" : "rgba(54, 53, 53, 1)"} offset="0%"/>
+          <stop stopColor={client.isLightTheme() ? "rgba(215, 213, 213, 1)" : "rgba(54, 53, 53, 1)"} offset="100%"/>
         </linearGradient>
       </defs>
       <path fill="url(#sw-gradient-2)"
@@ -26,11 +29,11 @@ export default function Wave(variant: number) {
     </svg>)
   } else if (variant == 3) {
     return (<svg id="wave3" viewBox="0 0 1440 100" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                 className="bg-vortezz-gray3 -mb-1">
+                 className="dark:bg-vortezz-gray3 bg-light-gray3 -mb-1">
       <defs>
         <linearGradient id="sw-gradient-3" x1="0" x2="0" y1="1" y2="0">
-          <stop stopColor="rgba(41, 39, 39, 1)" offset="0%"/>
-          <stop stopColor="rgba(41, 39, 39, 1)" offset="100%"/>
+          <stop stopColor={client.isLightTheme() ? "rgba(152, 152, 152, 1)" : "rgba(41, 39, 39, 1)"} offset="0%"/>
+          <stop stopColor={client.isLightTheme() ? "rgba(152, 152, 152, 1)" : "rgba(41, 39, 39, 1)"} offset="100%"/>
         </linearGradient>
       </defs>
       <path fill="url(#sw-gradient-3)"
@@ -38,11 +41,11 @@ export default function Wave(variant: number) {
     </svg>)
   }
   return (<svg id="wave4" viewBox="0 0 1440 100" version="1.1" xmlns="http://www.w3.org/2000/svg"
-               className="bg-vortezz-gray2 -mb-1">
+               className="dark:bg-vortezz-gray2 bg-light-gray2 -mb-1">
     <defs>
       <linearGradient id="sw-gradient-3" x1="0" x2="0" y1="1" y2="0">
-        <stop stopColor="rgba(41, 39, 39, 1)" offset="0%"/>
-        <stop stopColor="rgba(41, 39, 39, 1)" offset="100%"/>
+        <stop stopColor={client.isLightTheme() ? "rgba(152, 152, 152, 1)" : "rgba(41, 39, 39, 1)"} offset="0%"/>
+        <stop stopColor={client.isLightTheme() ? "rgba(152, 152, 152, 1)" : "rgba(41, 39, 39, 1)"} offset="100%"/>
       </linearGradient>
     </defs>
     <path fill="url(#sw-gradient-3)"
