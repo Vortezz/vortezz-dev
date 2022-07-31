@@ -1,5 +1,5 @@
 export default interface Details {
-    color: string,
-    uptime: number,
-    date: Date
+  color: string,
+  uptime: number,
+  date: Date
 }

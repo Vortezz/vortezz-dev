@@ -1,5 +1,5 @@
-import {BrowserRouter, Link, Navigate, Route, Routes} from "react-router-dom";
-import {DiscordRedirect, GithubRedirect, TwitterRedirect, YoutubeRedirect} from "./components/redirect/Redirect";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { DiscordRedirect, GithubRedirect, TwitterRedirect, YoutubeRedirect } from "./components/redirect/Redirect";
 import Error404 from "./pages/404";
 import Brand from "./pages/Brand";
 import Contact from "./pages/Contact";
@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Status from "./pages/Status";
 import Terms from "./pages/Terms";
 import Client from "./struct/Client";
-import {useState} from "react";
+import { useState } from "react";
 
 export default function App({client}: { client: Client }) {
   const [language, setLanguage] = useState(client.getLanguage());

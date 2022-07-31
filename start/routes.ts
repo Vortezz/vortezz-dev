@@ -2,7 +2,7 @@ import Route from '@ioc:Adonis/Core/Route'
 import View from '@ioc:Adonis/Core/View'
 
 import * as fs from "fs";
-import {HttpContextContract} from "@ioc:Adonis/Core/HttpContext";
+import { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import Cache from "tmp-cache";
 import ContactController from 'App/Controllers/Http/ContactController';
 

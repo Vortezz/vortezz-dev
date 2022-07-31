@@ -1,6 +1,5 @@
-import {useState} from "react";
-import {Link} from "react-router-dom";
-import language from "../language";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Client from "../struct/Client";
 
 const logo = require("../assets/pictures/logo.png")

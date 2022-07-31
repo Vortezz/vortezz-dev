@@ -3,9 +3,8 @@ import Navbar from "../components/Navbar";
 import Services from "../components/status/Services";
 import Wave from "../components/Wave";
 import date from "date-and-time";
-import language from "../language";
 import Client from "../struct/Client";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 export default function Status({client}: { client: Client }) {
   const [ticking, setTicking] = useState(true),
@@ -37,7 +36,7 @@ export default function Status({client}: { client: Client }) {
         <h1
           className="dark:text-vortezz-white text-vortezz-gray-1 text-lg md:text-xl xl:text-2xl text-center">{client.connected && !client.error ? `${client.getTranslation("status.last")} : ${date.format(new Date(client.statuses?.lastUpdate!), "HH:mm:ss")} (${Math.round((Date.now() - (new Date(client.statuses?.lastUpdate!).getTime() ?? 0)) / 1000)}${client.getTranslation("status.ago")})` : client.getTranslation("status.noconnection")}</h1>
         <br/>
-        <Wave variant={1} client={client} />
+        <Wave variant={1} client={client}/>
         {
           client.connected && !client.error
             ?
@@ -58,10 +57,10 @@ export default function Status({client}: { client: Client }) {
               </h1>
             </div>
         }
-        <Wave variant={2} client={client} />
+        <Wave variant={2} client={client}/>
         <Services client={client}/>
       </div>
-      <Wave variant={4} client={client} />
+      <Wave variant={4} client={client}/>
       <Footer client={client}/>
     </div>
   )

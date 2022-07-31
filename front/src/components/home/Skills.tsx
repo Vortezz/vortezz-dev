@@ -1,5 +1,3 @@
-import {Link} from "react-router-dom";
-import language from "../../language";
 import Frameworks from "./skills/Frameworks";
 import Languages from "./skills/Languages";
 import Others from "./skills/Others";

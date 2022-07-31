@@ -1,8 +1,6 @@
-import {useState} from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Wave from "../components/Wave";
-import language from "../language";
 import Client from "../struct/Client";
 
 export default function Brand({client}: { client: Client }) {
@@ -33,7 +31,7 @@ export default function Brand({client}: { client: Client }) {
           </div>
         </div>
       </div>
-      <Wave variant={1} client={client} />
+      <Wave variant={1} client={client}/>
       <div className="w-full dark:bg-vortezz-gray3 bg-light-gray3">
         <div className="w-[calc(90%)] m-auto flex justify-around py-2 flex-wrap">
           <div className="flex w-[calc(95%)] max-w-[calc(30rem)] m-2">
@@ -54,7 +52,7 @@ export default function Brand({client}: { client: Client }) {
           </div>
         </div>
       </div>
-      <Wave variant={2} client={client} />
+      <Wave variant={2} client={client}/>
       <div className="w-[calc(90%)] m-auto flex justify-around py-2 flex-wrap">
         <div className="flex w-[calc(95%)] max-w-[calc(30rem)] m-2">
           <div className="relative min-h-[calc(8rem)] w-32 bg-vortezz-white rounded-2xl group">
@@ -73,7 +71,7 @@ export default function Brand({client}: { client: Client }) {
             className="my-auto mx-4 w-80 dark:text-vortezz-white text-vortezz-gray-1 p-1 text-left">{client.getTranslation("branding.colors.gray1")}</div>
         </div>
       </div>
-      <Wave variant={1} client={client} />
+      <Wave variant={1} client={client}/>
       <div className="w-full dark:bg-vortezz-gray3 bg-light-gray3">
         <div className="w-[calc(90%)] m-auto flex justify-around flex-wrap">
           <div className="flex w-[calc(95%)] max-w-[calc(30rem)] m-2">
@@ -94,7 +92,7 @@ export default function Brand({client}: { client: Client }) {
           </div>
         </div>
       </div>
-      <Wave variant={3} client={client} />
+      <Wave variant={3} client={client}/>
       <Footer client={client}/>
     </div>)
 }

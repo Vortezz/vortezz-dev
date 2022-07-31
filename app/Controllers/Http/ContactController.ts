@@ -1,7 +1,7 @@
-import {HttpContextContract} from '@ioc:Adonis/Core/HttpContext'
-import {rules, schema} from "@ioc:Adonis/Core/Validator";
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import { rules, schema } from "@ioc:Adonis/Core/Validator";
 import Mail from "@ioc:Adonis/Addons/Mail";
-import {readFileSync} from "fs";
+import { readFileSync } from "fs";
 import Cache from "tmp-cache";
 
 function escapeHtml(string) {

@@ -1,8 +1,7 @@
 import fetch from "node-fetch";
 import Snackbar from '@mui/material/Snackbar';
-import MuiAlert, {AlertProps} from '@mui/material/Alert';
-import React, {useState} from "react";
-import language from "../../language";
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import React, { useState } from "react";
 import TextInput from "../inputs/TextInput";
 import Client from "../../struct/Client";
 

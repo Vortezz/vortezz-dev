@@ -1,5 +1,4 @@
-import {Link} from "react-router-dom";
-import language from "../language";
+import { Link } from "react-router-dom";
 import Client from "../struct/Client";
 
 export default function Footer({client}: { client: Client }) {

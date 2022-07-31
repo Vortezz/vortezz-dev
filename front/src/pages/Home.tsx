@@ -4,8 +4,6 @@ import Skills from "../components/home/Skills";
 import Wave from "../components/Wave";
 import Who from "../components/home/Who";
 import Projects from "../components/home/Projects";
-import language from "../language";
-import {ReactChild, ReactFragment, ReactPortal} from "react";
 import Client from "../struct/Client";
 
 export default function Home({client}: { client: Client }) {

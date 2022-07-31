@@ -1,9 +1,8 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Form from "../components/contact/Form";
 import Navbar from "../components/Navbar";
 import Wave from "../components/Wave";
-import language from "../language";
 import Client from "../struct/Client";
 
 export default function Contact({client}: { client: Client }) {

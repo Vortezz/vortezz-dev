@@ -1,5 +1,3 @@
-import language from "../../../language";
-
 export function BottomLeftTimelineComponent({icon, title, description}: Props) {
   return (
     <div className="flex flex-row-reverse md:contents z-0">

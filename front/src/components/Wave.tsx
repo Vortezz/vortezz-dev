@@ -1,4 +1,3 @@
-import {client} from "websocket";
 import Client from "../struct/Client";
 
 export default function Wave({variant, client}: { variant: number, client: Client }) {

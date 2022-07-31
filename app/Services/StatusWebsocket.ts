@@ -1,4 +1,4 @@
-import {Server} from 'socket.io'
+import { Server } from 'socket.io'
 import AdonisServer from '@ioc:Adonis/Core/Server'
 import Status from "../../struct/Status";
 

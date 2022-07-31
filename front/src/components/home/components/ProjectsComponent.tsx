@@ -1,5 +1,3 @@
-import {Link} from "react-router-dom";
-
 export default function ProjectsComponent({image, title, description, links}: Props) {
   return <div
     className={"h-44 w-[calc(90%)] dark:bg-vortezz-gray1 bg-light-gray1 max-w-[calc(24rem)] rounded-lg flex text-white mx-auto mt-4"}>

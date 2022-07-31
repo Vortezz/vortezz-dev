@@ -1,7 +1,6 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Wave from "../components/Wave";
-import language from "../language";
 import Client from "../struct/Client";
 
 export default function Error404({client}: { client: Client }) {
@@ -19,7 +18,7 @@ export default function Error404({client}: { client: Client }) {
           </div>
         </div>
       </div>
-      <Wave variant={4} client={client} />
+      <Wave variant={4} client={client}/>
       <Footer client={client}/>
     </div>
   )

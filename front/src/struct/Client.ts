@@ -1,6 +1,6 @@
 import EventEmitter from "events";
 import Statuses from "./Statuses";
-import {Socket, io} from "socket.io-client";
+import { io, Socket } from "socket.io-client";
 
 import en from "../lang/en.json"
 import fr from "../lang/fr.json"
@@ -92,7 +92,7 @@ export default class Client extends EventEmitter {
     localStorage.setItem("light", lightTheme ? "1" : "0");
 
     this.emit("themeChanged");
-    
+
     document.getElementsByTagName("html")[0].classList.toggle("dark")
   }
 
