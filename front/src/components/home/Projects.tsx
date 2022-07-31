@@ -1,4 +1,3 @@
-import language from "../../language";
 import ProjectsComponent from "./components/ProjectsComponent";
 
 // @ts-ignore

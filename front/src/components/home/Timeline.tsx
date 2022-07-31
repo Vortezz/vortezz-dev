@@ -1,4 +1,3 @@
-import language from "../../language";
 import {
   BottomLeftTimelineComponent,
   LeftTimelineComponent,

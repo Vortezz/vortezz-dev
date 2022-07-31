@@ -1,8 +1,5 @@
-import {useState} from "react";
-import ReconnectingWebSocket from "reconnecting-websocket";
 import ServiceWidget from "./ServiceWidget";
 import Service from "../../struct/Service";
-import Statuses from "../../struct/Statuses";
 import Client from "../../struct/Client";
 
 export default function Services({client}: { client: Client }) {
