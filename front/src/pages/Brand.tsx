@@ -9,25 +9,25 @@ export default function Brand({client}: { client: Client }) {
     <div className="h-screen w-full dark:bg-vortezz-gray2 bg-light-gray2 overflow-y-auto min-height-full">
       <Navbar client={client}/>
       <h1
-        className="py-4 text-center dark:text-vortezz-white text-vortezz-gray-1 font-extrabold text-7xl dark:bg-vortezz-white dark:text-vortezz-gray1">{client.getTranslation("branding.title")}</h1>
-      <div className="w-full dark:bg-vortezz-white p-2">
+        className="py-4 text-center bg-light-gray2 text-vortezz-gray1 font-extrabold text-7xl dark:bg-vortezz-gray2 dark:text-vortezz-white">{client.getTranslation("branding.title")}</h1>
+      <div className="w-full dark:bg-vortezz-gray2 dark:text-vortezz-white p-2">
         <div className="w-[calc(90%)] m-auto flex justify-around flex-wrap">
           <div className="flex w-[calc(95%)] max-w-[calc(30rem)] m-2">
             <div
-              className="relative min-h-[calc(8rem)] w-32 bg-vortezz-purple rounded-2xl group dark:bg-cvortezz-purple">
+              className="relative min-h-[calc(8rem)] w-32 bg-vortezz-purple rounded-2xl group">
               <h1
                 className="absolute top-1 left-2 opacity-0 dark:text-vortezz-white text-vortezz-gray-1 group-hover:opacity-100 cursor-pointer">#8B5CF6</h1>
             </div>
             <div
-              className="my-auto mx-4 w-80 dark:text-vortezz-white text-vortezz-gray-1 p-1 dark:text-vortezz-gray1">{client.getTranslation("branding.colors.purple")}</div>
+              className="my-auto mx-4 w-80 dark:text-vortezz-white text-vortezz-gray-1 p-1">{client.getTranslation("branding.colors.purple")}</div>
           </div>
           <div className="flex w-[calc(95%)] max-w-[calc(30rem)] m-2">
-            <div className="relative min-h-[calc(8rem)] w-32 bg-vortezz-red rounded-2xl group dark:bg-cvortezz-red">
+            <div className="relative min-h-[calc(8rem)] w-32 bg-vortezz-red rounded-2xl group">
               <h1
                 className="absolute top-1 left-2 opacity-0 dark:text-vortezz-white text-vortezz-gray-1 group-hover:opacity-100 cursor-pointer">#EC2C44</h1>
             </div>
             <div
-              className="my-auto mx-4 w-80 dark:text-vortezz-white text-vortezz-gray-1 p-1 dark:text-vortezz-gray1">{client.getTranslation("branding.colors.red")}</div>
+              className="my-auto mx-4 w-80 dark:text-vortezz-white text-vortezz-gray-1 p-1">{client.getTranslation("branding.colors.red")}</div>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@ export default function Brand({client}: { client: Client }) {
             className="my-auto mx-4 w-80 dark:text-vortezz-white text-vortezz-gray-1 p-1 text-left">{client.getTranslation("branding.colors.white")}</div>
         </div>
         <div className="flex w-[calc(95%)] max-w-[calc(30rem)] m-2">
-          <div className="relative min-h-[calc(8rem)] w-32 dark:bg-vortezz-gray1 bg-light-gray1 rounded-2xl group">
+          <div className="relative min-h-[calc(8rem)] w-32 bg-vortezz-gray1 rounded-2xl group">
             <h1
               className="absolute top-1 left-2 opacity-0 dark:text-vortezz-white text-vortezz-gray-1 group-hover:opacity-100 cursor-pointer">#292727</h1>
           </div>
@@ -77,7 +77,7 @@ export default function Brand({client}: { client: Client }) {
           <div className="flex w-[calc(95%)] max-w-[calc(30rem)] m-2">
             <div
               className="my-auto mx-4 w-80 dark:text-vortezz-white text-vortezz-gray-1 p-1">{client.getTranslation("branding.colors.gray2")}</div>
-            <div className="relative min-h-[calc(8rem)] w-32 dark:bg-vortezz-gray2 bg-light-gray2 rounded-2xl group">
+            <div className="relative min-h-[calc(8rem)] w-32 bg-vortezz-gray2 rounded-2xl group">
               <h1
                 className="absolute top-1 left-2 opacity-0 dark:text-vortezz-white text-vortezz-gray-1 group-hover:opacity-100 cursor-pointer">#363535</h1>
             </div>
@@ -85,7 +85,7 @@ export default function Brand({client}: { client: Client }) {
           <div className="flex w-[calc(95%)] max-w-[calc(30rem)] m-2">
             <div
               className="my-auto mx-4 w-80 dark:text-vortezz-white text-vortezz-gray-1 p-1">{client.getTranslation("branding.colors.gray3")}</div>
-            <div className="relative min-h-[calc(8rem)] w-32 dark:bg-vortezz-gray3 bg-light-gray3 rounded-2xl group">
+            <div className="relative min-h-[calc(8rem)] w-32 bg-vortezz-gray3 rounded-2xl group">
               <h1
                 className="absolute top-1 left-2 opacity-0 dark:text-vortezz-white text-vortezz-gray-1 group-hover:opacity-100 cursor-pointer">#464545</h1>
             </div>
