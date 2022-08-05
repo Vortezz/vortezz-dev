@@ -77,6 +77,8 @@ class Service {
       .limit(30)
       .orderBy("timestamp", "desc");
 
+    this.uptime = 0;
+
     for (let previousHistory of previousHistories) {
       this.uptime += previousHistory.uptime;
 
