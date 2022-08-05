@@ -78,13 +78,17 @@ class Service {
       .orderBy("timestamp", "desc");
 
     for (let previousHistory of previousHistories) {
+      this.uptime += previousHistory.uptime;
+
       this.statusHistory.push(new ServiceHistory(
         previousHistory.uptime >= 99.5 ? "green" : previousHistory.uptime >= 97.5 ? "dark_green" : previousHistory.uptime >= 95 ? "yellow" : "red",
         previousHistory.uptime,
         new Date(previousHistory.timestamp)
       ));
     }
-    
+
+    this.uptime = Math.round(this.uptime / this.statusHistory.length * 100) / 100;
+
     while (this.statusHistory.length < 30) {
       this.statusHistory.push(new ServiceHistory(
         "gray", -1, new Date(this.statusHistory[this.statusHistory.length - 1].date.getTime() - 1000 * 60 * 60 * 24)
